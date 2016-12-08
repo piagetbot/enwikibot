@@ -4,7 +4,7 @@ import re
 site = wiki.Wiki()
 site.login('username', 'password') #For later
 
-def getWarningLevel(user=None, content=None):
+def getWarningLevel(user=None):
   params = {'action':'query',
             'prop':'revisions',
             'titles':user,
@@ -13,8 +13,7 @@ def getWarningLevel(user=None, content=None):
   }
   req = api.APIRequest(site, params)
   content = req.query(False)
-
-#In main() later, it would be:
-#if '<!-- Template:uw-\D*2 -->' in content:
-# continue
-#Or similar
+  if '<!-- Template:uw-\D*2 -->' in content:
+    lvl2 = True
+  else:
+    lvl2 = False
