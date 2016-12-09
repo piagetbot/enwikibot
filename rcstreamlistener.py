@@ -11,7 +11,7 @@ class MainNamespace(BaseNamespace):
     def on_change(self, change): 
         if change['namespace'] == 3:
             strippedTitle = change['title'].lstrip('User talk:')
-            if try:
+            try:
                 ipAddressObject = ip_address(strippedTitle)
                 return 'Page: ' + strippedTitle
             except ValueError:
