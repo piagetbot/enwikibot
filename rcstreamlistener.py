@@ -4,7 +4,7 @@ import logging
 from socketIO_client import SocketIO, BaseNamespace
 
 urllib3.contrib.pyopenssl.inject_into_urllib3()
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 class MainNamespace(BaseNamespace):
     def on_change(self, change): 
@@ -14,7 +14,9 @@ class MainNamespace(BaseNamespace):
 
     def on_connect(self):
         self.emit('subscribe', 'en.wikipedia.org')
+        print 'Connected.'
 
+print 'Connecting...'
 socketIO = SocketIO('https://stream.wikimedia.org')
 socketIO.define(MainNamespace, '/rc')
 
