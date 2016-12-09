@@ -9,7 +9,8 @@ urllib3.contrib.pyopenssl.inject_into_urllib3()
 class MainNamespace(BaseNamespace):
     def on_change(self, change): 
         if change['namespace'] == 3:
-            print 'Page: ' + change['title']
+            strippedTitle = change['title'].lstrip('User talk:')
+            print 'Page: ' + strippedTitle
 
     def on_connect(self):
         self.emit('subscribe', 'en.wikipedia.org')
