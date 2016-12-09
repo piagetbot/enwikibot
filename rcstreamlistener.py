@@ -14,7 +14,6 @@ class MainNamespace(BaseNamespace):
             try:
                 ipAddressObject = ip_address(strippedTitle)
                 print 'True'
-                return 'Page: ' + strippedTitle
             except ValueError:
                 print 'False'
 
