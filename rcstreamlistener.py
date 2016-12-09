@@ -13,9 +13,10 @@ class MainNamespace(BaseNamespace):
             strippedTitle = change['title'].lstrip('User talk:')
             try:
                 ipAddressObject = ip_address(strippedTitle)
+                print 'True'
                 return 'Page: ' + strippedTitle
             except ValueError:
-                pass
+                print 'False'
 
     def on_connect(self):
         self.emit('subscribe', 'en.wikipedia.org')
