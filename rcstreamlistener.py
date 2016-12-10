@@ -12,10 +12,12 @@ class MainNamespace(BaseNamespace):
     def on_change(self, change): 
         if change['namespace'] == 3:
             strippedTitle = change['title'].lstrip('User talk:')
-            if ip_address(strippedTitle):
-                print 'True'
-            else:
+            try:
+                ip_address(strippedTitle)
+            except:
                 print 'False'
+            else:
+                print 'True'
 
     def on_connect(self):
         self.emit('subscribe', 'en.wikipedia.org')
