@@ -3,7 +3,7 @@ import urllib3.contrib.pyopenssl
 import logging
 from ipaddress import ip_address
 from socketIO_client import SocketIO, BaseNamespace
-import template_adder
+import template-adder
 
 urllib3.contrib.pyopenssl.inject_into_urllib3()
 logging.basicConfig(level=logging.WARNING)
