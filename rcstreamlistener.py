@@ -13,7 +13,7 @@ class MainNamespace(BaseNamespace):
         if change['namespace'] == 3:
             strippedTitle = change['title'].lstrip('User talk:')
             try:
-                ip_address(strippedTitle)
+                print(ip_address(strippedTitle))
             except ValueError:
                 pass
 
