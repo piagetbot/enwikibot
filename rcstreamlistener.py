@@ -16,8 +16,6 @@ class MainNamespace(BaseNamespace):
                 ip_address(strippedTitle)
             except ValueError:
                 pass
-            else:
-                print ''
 
     def on_connect(self):
         self.emit('subscribe', 'en.wikipedia.org')
